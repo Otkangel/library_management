@@ -1,0 +1,165 @@
+/* Desktop View */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 40px;
+    height: 60px;
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+    background-color: black;
+    box-shadow: 0 1px 4px #f0791800;
+    top: 0;
+}
+
+.logo-nav a {
+    font-size: 20px;
+    color: #f07818;
+    font-weight: 800;
+}
+
+.logo-nav a:hover {
+    color: wheat;
+    transition: all ease 0.5s;
+}
+
+.search-input {
+    width: 100%;
+    margin-left: 15px;
+    max-width: 600px;
+    height: 40px;
+    outline: none;
+    padding: 10px 15px;
+    font-size: 18px;
+    border-radius: 10px;
+    border: 1px solid white;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.nav-options {
+    display: flex;
+    list-style-type: none;
+    margin-bottom: 0;
+    align-items: center;
+}
+
+.nav-options-active {
+    display: flex;
+    list-style-type: none;
+    margin-bottom: 0;
+    align-items: center;
+}
+
+.option {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 20px;
+    color: rgb(243, 6, 6);
+}
+
+.option a,
+.option span {
+    color: rgb(233, 83, 75);
+    display: flex;
+    align-items: center;
+    font-weight: 800;
+    font-size: 18px;
+}
+
+.option a:hover,
+.option span:hover {
+    color: wheat;
+    transition: all ease 0.5s;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.mobile-menu {
+    display: block;
+}
+
+/* Nav Options are given in this to make the search input as big as possible */
+@media (min-width: 768px) {
+    .mobile-menu {
+        display: none !important;
+    }
+
+    .header {
+        display: grid;
+        grid-template-columns: 1fr auto;
+    }
+
+    .nav-right {
+        flex: 0;
+        display: flex;
+        align-items: center;
+    }
+
+    .search-input {
+        margin: 0 15px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* Mobile View */
+    .header {
+        padding: 0px 10px;
+    }
+
+    .nav-options {
+        display: flex;
+        flex-direction: column;
+        /* Thay đổi chiều hướng thành cột */
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: -100%;
+        opacity: 0;
+        transition: all 0.5s ease;
+        background-color: #5E412F;
+        /* Đảm bảo nền giống header */
+        z-index: 100;
+    }
+
+    .nav-options.nav-options-active {
+        left: 0;
+        opacity: 1;
+    }
+
+    .menu-icon {
+        width: 45px;
+        height: 45px;
+        color: rgb(233, 83, 75);
+        padding: 2px;
+        background-color: rgb(246, 233, 202);
+        border-radius: 5px;
+        cursor: pointer;
+        margin: 0px 5px 0px 10px;
+    }
+
+    .option {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 50px;
+        /* Chiều cao mỗi mục menu */
+        padding: 10px 0;
+        border-bottom: 1px solid #F07818;
+        /* Thêm đường viền giữa các mục */
+    }
+
+    .option:last-child {
+        border-bottom: none;
+        /* Loại bỏ đường viền cho mục cuối */
+    }
+}
